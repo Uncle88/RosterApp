@@ -1,12 +1,14 @@
 ﻿using System;
+using RosterApp.Views;
 using Xamarin.Forms;
 
 namespace RosterApp.ViewModels
 {
     public class MarketListViewModel : BaseViewModel
     {
-        public MarketListViewModel()
+        public MarketListViewModel(INavigation navigation)
         {
+            Navigation = navigation;
         }
 
         public INavigation Navigation { get; private set; }
@@ -16,7 +18,10 @@ namespace RosterApp.ViewModels
         {
             get
             {
-                return _clickADDCommand ?? (_clickADDCommand = new Command(Navigation.PushAsync(new MarketItemView(new MarketItemViewModel()))));
+                return _clickADDCommand ?? (_clickADDCommand = new Command(async () =>
+                {
+                    await Navigation.PushAsync(new MarketItemView());
+                }));
             }
         }
     }
