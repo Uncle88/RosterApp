@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="RosterApp.Views.MarketListView"
+             Title="Market List">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="ADD" Command="{Binding CreateMarketCommand}" BackgroundColor="Gray"/>
+            <ListView x:Name="Enumeration" ItemsSource="{Binding Market}"
+              SelectedItem="{Binding SelectedItemMarket, Mode=TwoWay}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}" FontSize="Medium" />
+                                    <Label Text="{Binding Manufacturer}" FontSize="Small" />
+                                    <Label Text="{Binding Price}" FontSize="Small" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
