@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="RosterApp.Views.MarketListView"
-             Title="Market List">
+             Title="ROSTER">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="ADD" Command="{Binding CreateMarketCommand}" BackgroundColor="Gray"/>
+            <Button Text="ADD" Command="{Binding ClickADDCommand}" BackgroundColor="Aqua"/>
             <ListView x:Name="Enumeration" ItemsSource="{Binding Market}"
               SelectedItem="{Binding SelectedItemMarket, Mode=TwoWay}" HasUnevenRows="True">
                 <ListView.ItemTemplate>

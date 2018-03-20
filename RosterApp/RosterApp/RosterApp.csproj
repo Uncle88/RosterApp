@@ -42,7 +42,8 @@
     <Compile Include="Views\MarketListView.xaml.cs">
       <DependentUpon>MarketListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BaseView.cs" />
+    <Compile Include="ViewModels\MarketListViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

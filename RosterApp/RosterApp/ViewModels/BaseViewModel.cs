@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace RosterApp.ViewModels
 {
-    public class BaseView : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
