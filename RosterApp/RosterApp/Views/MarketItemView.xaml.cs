@@ -17,6 +17,7 @@ namespace RosterApp.Views
         public MarketItemView()
         {
             InitializeComponent();
+            BindingContext = new MarketItemViewModel(Navigation);
         }
     }
 }

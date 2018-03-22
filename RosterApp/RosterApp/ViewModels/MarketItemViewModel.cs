@@ -1,6 +1,5 @@
-﻿using System;
-using RosterApp.Models;
-using RosterApp.Views;
+﻿using RosterApp.Models;
+using RosterApp.Services.DataBase;
 using Xamarin.Forms;
 
 namespace RosterApp.ViewModels
@@ -15,8 +14,10 @@ namespace RosterApp.ViewModels
         public MarketItemViewModel(INavigation navigation)
         {
             Navigation = navigation;
+            _dataBaseService = new DataBaseService();
         }
 
+        readonly IDataBaseService _dataBaseService;
         public INavigation Navigation { get; set; }
 
         private Market _name;
@@ -30,35 +31,35 @@ namespace RosterApp.ViewModels
             }
         }
 
-        private MarketListViewModel _marketListVM;
-        public MarketListViewModel marketListViewModel
-        {
-            get { return _marketListVM; }
-            set
-            {
-                if (value != _marketListVM)
-                {
-                    _marketListVM = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        //private Command _clickSaveBatton;
+        private Command _clickSaveBatton;
         public Command ClickSaveBatton
         {
             get
             {
-                return null;
+                return _clickSaveBatton ?? (_clickSaveBatton = new Command(async() =>
+                {
+                    if (Name != null)
+                    {
+                        _dataBaseService.SaveItemToDB(Name);
+                    }
+                    await Navigation.PopAsync();
+                }));
             }
         }
 
-        //private Command _clickDeleteBatton;
+        private Command _clickDeleteBatton;
         public Command ClickDeleteBatton
         {
             get
             {
-                return null;
+                return _clickDeleteBatton ?? (_clickDeleteBatton = new Command(async () =>
+                {
+                    if (Name != null)
+                    {
+                        _dataBaseService.DeleteItemFromDB(Name);
+                    }
+                    await Navigation.PopAsync();
+                }));
             }
         }
 

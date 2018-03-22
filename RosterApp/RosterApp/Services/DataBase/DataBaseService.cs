@@ -25,12 +25,12 @@ namespace RosterApp.Services.DataBase
             return _dataBaseConnection.Table<Market>().ToList();
         }
 
-        public void DeleteItemFromDB(List<Market> item)
+        public void DeleteItemFromDB(Market item)
         {
             _dataBaseConnection.Delete(item);
         }
 
-        public void SaveItemToDB(List<Market> item)
+        public void SaveItemToDB(Market item)
         {
             _dataBaseConnection.Insert(item);
         }

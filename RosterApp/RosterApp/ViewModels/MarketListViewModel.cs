@@ -10,19 +10,20 @@ namespace RosterApp.ViewModels
     public class MarketListViewModel : BaseViewModel
     {
         readonly IDataBaseService _dataBaseService;
+
         public MarketListViewModel(){}
 
         public MarketListViewModel(INavigation navigation)
         {
             Navigation = navigation;
             _dataBaseService = new DataBaseService();
-
-            ShowListNotes();
         }
 
-        public void ShowListNotes()
+        public override void OnAppearing()
         {
-            Markets = new List<Market>(_dataBaseService.GetList());
+            base.OnAppearing();
+
+            Markets = _dataBaseService.GetList();
         }
 
         public INavigation Navigation { get; private set; }
