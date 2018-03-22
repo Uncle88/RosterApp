@@ -55,6 +55,7 @@
     <Compile Include="Models\Market.cs" />
     <Compile Include="Services\DataBase\IDataBaseService.cs" />
     <Compile Include="Services\DataBase\DataBaseService.cs" />
+    <Compile Include="Services\DataBasePath\IDataBasePathService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -62,6 +63,7 @@
     <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="Services\DataBase\" />
+    <Folder Include="Services\DataBasePath\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
