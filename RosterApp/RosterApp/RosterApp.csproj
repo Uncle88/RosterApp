@@ -53,11 +53,15 @@
     </Compile>
     <Compile Include="ViewModels\MarketItemViewModel.cs" />
     <Compile Include="Models\Market.cs" />
+    <Compile Include="Services\DataBase\IDataBaseService.cs" />
+    <Compile Include="Services\DataBase\DataBaseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\DataBase\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
