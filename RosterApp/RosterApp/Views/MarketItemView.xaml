@@ -5,7 +5,7 @@
              Title="Item">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout x:Name="Stack">
+            <StackLayout>
                 <Label Text="Name" />
                 <Entry Text="{Binding Name}" FontSize="Medium" />
             </StackLayout>

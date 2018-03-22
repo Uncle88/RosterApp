@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using RosterApp.Models;
 using RosterApp.Views;
 using Xamarin.Forms;
 
@@ -6,6 +8,8 @@ namespace RosterApp.ViewModels
 {
     public class MarketListViewModel : BaseViewModel
     {
+        public MarketListViewModel(){}
+
         public MarketListViewModel(INavigation navigation)
         {
             Navigation = navigation;
@@ -23,6 +27,44 @@ namespace RosterApp.ViewModels
                     await Navigation.PushAsync(new MarketItemView());
                 }));
             }
+        }
+
+        private List<Market> _markets;
+        public List<Market> Markets
+        {
+            get { return _markets; }
+            set 
+            {
+                _markets = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Market _selectedItemMarket;
+        public Market SelectedItemMarket
+        {
+            get
+            {
+                return _selectedItemMarket;
+            }
+            set
+            {
+                if (_selectedItemMarket != value)
+                {
+                    _selectedItemMarket = value;
+                    OnPropertyChanged();
+                    if (value != null)
+                    {
+                        OnItemSelected();
+                    }
+                }
+            }
+        }
+
+        async void OnItemSelected()
+        {
+            await Navigation.PushAsync(new MarketItemView(SelectedItemMarket));
+            SelectedItemMarket = null;
         }
     }
 }

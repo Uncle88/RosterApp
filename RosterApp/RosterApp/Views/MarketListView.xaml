@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="ADD" Command="{Binding ClickADDCommand}" BackgroundColor="Aqua"/>
-            <ListView x:Name="Enumeration" ItemsSource="{Binding Market}"
+            <ListView x:Name="Enumeration" ItemsSource="{Binding Markets}"
               SelectedItem="{Binding SelectedItemMarket, Mode=TwoWay}" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -14,8 +14,6 @@
                             <ViewCell.View>
                                 <StackLayout>
                                     <Label Text="{Binding Name}" FontSize="Medium" />
-                                    <Label Text="{Binding Manufacturer}" FontSize="Small" />
-                                    <Label Text="{Binding Price}" FontSize="Small" />
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
