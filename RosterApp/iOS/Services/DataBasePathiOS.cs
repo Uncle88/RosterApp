@@ -9,6 +9,6 @@ namespace RosterApp.iOS.Services
 {
     public class DataBasePathiOS : IDataBasePathService
     {
-        public string DataStoragePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "RosterDB.db");
+        public string DataBasePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "RosterDB.db");
     }
 }
