@@ -18,21 +18,19 @@ namespace RosterApp.ViewModels
             _dataBaseService = new DataBaseService();
         }
 
-        public override void OnAppearing()
+        public override void Initialize()
         {
-            base.OnAppearing();
-
             Markets = _dataBaseService.GetList();
         }
 
         public INavigation Navigation { get; private set; }
 
-        private Command _clickADDCommand;
-        public Command ClickADDCommand
+        private Command _addCommand;
+        public Command AddCommand
         {
             get
             {
-                return _clickADDCommand ?? (_clickADDCommand = new Command(async () =>
+                return _addCommand ?? (_addCommand = new Command(async () =>
                 {
                     await Navigation.PushAsync(new MarketItemView());
                 }));

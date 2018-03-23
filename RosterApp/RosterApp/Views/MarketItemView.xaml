@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<views:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="RosterApp.Views.MarketItemView"
+                xmlns:views="clr-namespace:RosterApp.Views;assembly=RosterApp"
              Title="Item">
     <ContentPage.Content>
         <StackLayout>
@@ -11,10 +12,10 @@
             </StackLayout>
             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                 <Switch IsToggled="{Binding Done}" />
-                <Button Text="Save" Command="{Binding ClickSaveBatton}"/>
-                <Button Text="Delete" Command="{Binding ClickDeleteBatton}"/>
-                <Button Text="Cancel" Command="{Binding ClickCancelBatton}"/> 
+                <Button Text="Save" Command="{Binding SaveCommand}"/>
+                <Button Text="Delete" Command="{Binding DeleteCommand}"/>
+                <Button Text="Cancel" Command="{Binding CancelCommand}"/> 
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</views:BaseView>

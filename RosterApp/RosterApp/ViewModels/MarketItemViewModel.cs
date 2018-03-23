@@ -29,12 +29,12 @@ namespace RosterApp.ViewModels
             }
         }
 
-        private Command _clickSaveBatton;
-        public Command ClickSaveBatton
+        private Command _saveCommand;
+        public Command SaveCommand
         {
             get
             {
-                return _clickSaveBatton ?? (_clickSaveBatton = new Command(async () =>
+                return _saveCommand ?? (_saveCommand = new Command(async () =>
                 {
                     var _saveItem = new Market();
                     _saveItem.Name = Item;
@@ -49,12 +49,12 @@ namespace RosterApp.ViewModels
             }
         }
 
-        private Command _clickDeleteBatton;
-        public Command ClickDeleteBatton
+        private Command _deleteCommand;
+        public Command DeleteCommand
         {
             get
             {
-                return _clickDeleteBatton ?? (_clickDeleteBatton = new Command(async () =>
+                return _deleteCommand ?? (_deleteCommand = new Command(async () =>
                 {
                     if (Item !=null)
                     {
@@ -65,12 +65,12 @@ namespace RosterApp.ViewModels
             }
         }
 
-        private Command _clickCancelBatton;
-        public Command ClickCancelBatton
+        private Command _cancelCommand;
+        public Command CancelCommand
         {
             get
             {
-                return _clickCancelBatton ?? (_clickCancelBatton = new Command(() =>
+                return _cancelCommand ?? (_cancelCommand = new Command(() =>
                 {
                     Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
                 }));

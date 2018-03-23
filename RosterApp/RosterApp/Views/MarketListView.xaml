@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<views:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="RosterApp.Views.MarketListView"
+             xmlns:views="clr-namespace:RosterApp.Views;assembly=RosterApp"
              Title="ROSTER">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="ADD" Command="{Binding ClickADDCommand}" BackgroundColor="Aqua"/>
+            <Button Text="ADD" Command="{Binding AddCommand}" BackgroundColor="Aqua"/>
             <ListView x:Name="Enumeration" ItemsSource="{Binding Markets}"
               SelectedItem="{Binding SelectedItemMarket, Mode=TwoWay}" HasUnevenRows="True">
                 <ListView.ItemTemplate>
@@ -22,4 +23,4 @@
             </ListView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</views:BaseView>

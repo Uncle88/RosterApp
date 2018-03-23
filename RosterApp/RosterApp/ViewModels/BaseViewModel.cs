@@ -13,6 +13,8 @@ namespace RosterApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public virtual void OnAppearing(){}
+        public virtual void Initialize(){}
+
+        public virtual void Deinitialize(){}
 	}
 }

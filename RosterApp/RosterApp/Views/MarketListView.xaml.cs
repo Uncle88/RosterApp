@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace RosterApp.Views
 {
-    public partial class MarketListView : ContentPage
+    public partial class MarketListView : BaseView
     {
         public MarketListView()
         {
