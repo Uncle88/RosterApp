@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using RosterApp.Models;
 using RosterApp.Services.DataBase;
 using RosterApp.Views;

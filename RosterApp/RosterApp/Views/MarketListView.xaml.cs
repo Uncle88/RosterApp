@@ -10,7 +10,7 @@ namespace RosterApp.Views
         public MarketListView()
         {
             InitializeComponent();
-            BindingContext = new MarketListViewModel(Navigation);
+            BindingContext = new MarketListViewModel(this.Navigation);
         }
     }
 }

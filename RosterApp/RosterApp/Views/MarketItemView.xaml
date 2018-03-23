@@ -6,8 +6,8 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
-                <Label Text="Name" />
-                <Entry Text="{Binding Name}" FontSize="Medium" />
+                <Label Text="ItemName" />
+                <Entry Text="{Binding Item}" FontSize="Medium" />
             </StackLayout>
             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                 <Switch IsToggled="{Binding Done}" />

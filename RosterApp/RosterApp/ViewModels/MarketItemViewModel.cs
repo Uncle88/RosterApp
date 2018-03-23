@@ -6,10 +6,9 @@ namespace RosterApp.ViewModels
 {
     public class MarketItemViewModel : BaseViewModel
     {
-        public MarketItemViewModel(Market item)
-        {
-            Name = item;
-        }
+        private readonly IDataBaseService _dataBaseService;
+
+        public MarketItemViewModel(){}
 
         public MarketItemViewModel(INavigation navigation)
         {
@@ -17,16 +16,15 @@ namespace RosterApp.ViewModels
             _dataBaseService = new DataBaseService();
         }
 
-        readonly IDataBaseService _dataBaseService;
         public INavigation Navigation { get; set; }
 
-        private Market _name;
-        public Market Name
+        private string _item;
+        public string Item     
         {
-            get { return _name; }
+            get { return _item; }
             set
             {
-                _name = value;
+                _item = value;
                 OnPropertyChanged();
             }
         }
@@ -36,12 +34,16 @@ namespace RosterApp.ViewModels
         {
             get
             {
-                return _clickSaveBatton ?? (_clickSaveBatton = new Command(async() =>
+                return _clickSaveBatton ?? (_clickSaveBatton = new Command(async () =>
                 {
-                    if (Name != null)
-                    {
-                        _dataBaseService.SaveItemToDB(Name);
-                    }
+                    var _saveItem = new Market();
+                    _saveItem.Name = Item;
+                    _dataBaseService.SaveItemToDB(_saveItem);
+
+
+                    var markET = _dataBaseService.GetList();
+
+
                     await Navigation.PopAsync();
                 }));
             }
@@ -54,9 +56,9 @@ namespace RosterApp.ViewModels
             {
                 return _clickDeleteBatton ?? (_clickDeleteBatton = new Command(async () =>
                 {
-                    if (Name != null)
+                    if (Item !=null)
                     {
-                        _dataBaseService.DeleteItemFromDB(Name);
+                        //_dataBaseService.DeleteItemFromDB(Item);
                     }
                     await Navigation.PopAsync();
                 }));

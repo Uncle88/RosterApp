@@ -20,6 +20,11 @@ namespace RosterApp.Services.DataBase
             _dataBaseConnection.CreateTable<Market>();
         }
 
+        public void SaveItemToDB(Market item)
+        {
+            _dataBaseConnection.Insert(item);
+        }
+
         public List<Market> GetList()
         {
             return _dataBaseConnection.Table<Market>().ToList();
@@ -28,11 +33,6 @@ namespace RosterApp.Services.DataBase
         public void DeleteItemFromDB(Market item)
         {
             _dataBaseConnection.Delete(item);
-        }
-
-        public void SaveItemToDB(Market item)
-        {
-            _dataBaseConnection.Insert(item);
         }
     }
 }
