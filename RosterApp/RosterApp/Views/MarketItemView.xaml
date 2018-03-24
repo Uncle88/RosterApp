@@ -8,7 +8,7 @@
         <StackLayout>
             <StackLayout>
                 <Label Text="ItemName" />
-                <Entry Text="{Binding Item}" FontSize="Medium" />
+                <Entry Text="{Binding Item.Name}" FontSize="Medium" />
             </StackLayout>
             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                 <Switch IsToggled="{Binding Done}" />

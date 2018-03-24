@@ -1,4 +1,5 @@
-﻿using RosterApp.Models;
+﻿using System.Collections.Generic;
+using RosterApp.Models;
 using RosterApp.Services.DataBase;
 using Xamarin.Forms;
 
@@ -13,13 +14,19 @@ namespace RosterApp.ViewModels
         public MarketItemViewModel(INavigation navigation)
         {
             Navigation = navigation;
+        }
+
+        public MarketItemViewModel(INavigation navigation,Market item)
+        {
+            Item = item;
+            Navigation = navigation;
             _dataBaseService = new DataBaseService();
         }
 
         public INavigation Navigation { get; set; }
 
-        private string _item;
-        public string Item     
+        private Market _item;
+        public Market Item     
         {
             get { return _item; }
             set
@@ -37,12 +44,11 @@ namespace RosterApp.ViewModels
                 return _saveCommand ?? (_saveCommand = new Command(async () =>
                 {
                     var _saveItem = new Market();
-                    _saveItem.Name = Item;
-                    _dataBaseService.SaveItemToDB(_saveItem);
-
-
-                    var markET = _dataBaseService.GetList();
-
+                    if (Item != null)
+                    {
+                        _saveItem = Item;
+                        _dataBaseService.SaveItemToDB(_saveItem);
+                    }
 
                     await Navigation.PopAsync();
                 }));
@@ -56,10 +62,7 @@ namespace RosterApp.ViewModels
             {
                 return _deleteCommand ?? (_deleteCommand = new Command(async () =>
                 {
-                    if (Item !=null)
-                    {
-                        //_dataBaseService.DeleteItemFromDB(Item);
-                    }
+                    _dataBaseService.DeleteItemFromDB(Item);
                     await Navigation.PopAsync();
                 }));
             }
