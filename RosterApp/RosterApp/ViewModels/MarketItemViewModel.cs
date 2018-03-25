@@ -18,7 +18,7 @@ namespace RosterApp.ViewModels
 
         public MarketItemViewModel(INavigation navigation,Market item)
         {
-            Item = item;
+            ItemName = item.Name;
             Navigation = navigation;
             _dataBaseService = new DataBaseService();
         }
@@ -36,6 +36,17 @@ namespace RosterApp.ViewModels
             }
         }
 
+        private string _itemName;
+        public string ItemName
+        {
+            get { return _itemName; }
+            set
+            {
+                _itemName = value;
+                OnPropertyChanged();
+            }
+        }
+
         private Command _saveCommand;
         public Command SaveCommand
         {
@@ -44,9 +55,9 @@ namespace RosterApp.ViewModels
                 return _saveCommand ?? (_saveCommand = new Command(async () =>
                 {
                     var _saveItem = new Market();
-                    if (Item != null)
+                    if (ItemName != null)
                     {
-                        _saveItem = Item;
+                        _saveItem.Name = ItemName;
                         _dataBaseService.SaveItemToDB(_saveItem);
                     }
 
