@@ -14,10 +14,12 @@ namespace RosterApp.ViewModels
         public MarketItemViewModel(INavigation navigation)
         {
             Navigation = navigation;
+            _dataBaseService = new DataBaseService();
         }
 
         public MarketItemViewModel(INavigation navigation,Market item)
         {
+            Item = item;
             ItemName = item.Name;
             Navigation = navigation;
             _dataBaseService = new DataBaseService();
