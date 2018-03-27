@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using RosterApp.ViewModels;
-using Xamarin.Forms;
+﻿using RosterApp.ViewModels;
 
 namespace RosterApp.Views
 {

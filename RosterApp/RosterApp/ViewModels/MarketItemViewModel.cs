@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using RosterApp.Models;
+﻿using RosterApp.Models;
 using RosterApp.Services.DataBase;
 using Xamarin.Forms;
 
@@ -9,21 +8,17 @@ namespace RosterApp.ViewModels
     {
         private readonly IDataBaseService _dataBaseService;
 
-        public MarketItemViewModel(){}
-
         public MarketItemViewModel(INavigation navigation)
         {
             Navigation = navigation;
             _dataBaseService = new DataBaseService();
         }
 
-        public MarketItemViewModel(INavigation navigation,Market item)
+        public MarketItemViewModel(INavigation navigation,Market item) : this(navigation)
         {
             Item = item;
             ItemName = item.Name;
             IsDone = item.IsDone;
-            Navigation = navigation;
-            _dataBaseService = new DataBaseService();
         }
 
         public INavigation Navigation { get; set; }
