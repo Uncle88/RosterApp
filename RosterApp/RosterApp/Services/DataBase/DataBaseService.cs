@@ -20,9 +20,16 @@ namespace RosterApp.Services.DataBase
             _dataBaseConnection.CreateTable<Market>();
         }
 
-        public void SaveItemToDB(Market item)
+        public int SaveItemToDB(Market item)
         {
-            _dataBaseConnection.Insert(item);
+            if (item.Id != 0)
+            {
+                return _dataBaseConnection.Update(item);
+            }
+            else
+            {
+                return _dataBaseConnection.Insert(item);
+            }
         }
 
         public List<Market> GetList()

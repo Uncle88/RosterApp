@@ -8,15 +8,14 @@
         <StackLayout>
             <Button Text="ADD" Command="{Binding AddCommand}" BackgroundColor="Aqua"/>
             <ListView x:Name="Enumeration" ItemsSource="{Binding Markets}"
-              SelectedItem="{Binding SelectedItemMarket, Mode=TwoWay}" HasUnevenRows="True">
+              SelectedItem="{Binding SelectedItemMarket, Mode=TwoWay}" HasUnevenRows="True" RowHeight="20">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout>
-                                    <Label Text="{Binding Name}" FontSize="Medium" />
-                                </StackLayout>
-                            </ViewCell.View>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Name}" FontSize="Medium" Margin="20,0,0,0" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                                <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding IsDone}" />
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

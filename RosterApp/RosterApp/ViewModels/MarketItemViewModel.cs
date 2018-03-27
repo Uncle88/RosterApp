@@ -21,6 +21,7 @@ namespace RosterApp.ViewModels
         {
             Item = item;
             ItemName = item.Name;
+            IsDone = item.IsDone;
             Navigation = navigation;
             _dataBaseService = new DataBaseService();
         }
@@ -49,6 +50,36 @@ namespace RosterApp.ViewModels
             }
         }
 
+        private bool _done;
+        public bool IsDone
+        {
+            get { return _done; }
+            set 
+            {
+                _done = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Command _updateCommand;
+        public Command UpdateCommand
+        {
+            get
+            {
+                return _updateCommand ?? (_updateCommand = new Command(async () =>
+                {
+                    if (Item != null)
+                    {
+                        Item.Name = ItemName;
+                        Item.IsDone = IsDone;
+                        _dataBaseService.SaveItemToDB(Item);
+                    }
+                    await Navigation.PopAsync();
+                }));
+            }
+        }
+
+
         private Command _saveCommand;
         public Command SaveCommand
         {
@@ -60,6 +91,7 @@ namespace RosterApp.ViewModels
                     if (ItemName != null)
                     {
                         _saveItem.Name = ItemName;
+                        _saveItem.IsDone = IsDone;
                         _dataBaseService.SaveItemToDB(_saveItem);
                     }
 

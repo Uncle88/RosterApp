@@ -7,7 +7,7 @@ namespace RosterApp.Services.DataBase
     public interface IDataBaseService
     {
         List<Market> GetList();
-        void SaveItemToDB(Market item);
+        int SaveItemToDB(Market item);
         void DeleteItemFromDB(Market item);
     }
 }

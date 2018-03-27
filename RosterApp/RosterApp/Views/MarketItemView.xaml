@@ -11,8 +11,9 @@
                 <Entry Text="{Binding ItemName}" FontSize="Medium" />
             </StackLayout>
             <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
-                <Switch IsToggled="{Binding Done}" />
+                <Switch IsToggled="{Binding IsDone}" />
                 <Button Text="Save" Command="{Binding SaveCommand}"/>
+                <Button Text="Update" Command="{Binding UpdateCommand}"/>
                 <Button Text="Delete" Command="{Binding DeleteCommand}"/>
                 <Button Text="Cancel" Command="{Binding CancelCommand}"/> 
             </StackLayout>
