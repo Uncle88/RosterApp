@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="RosterApp.Views.MarketListView"
+             xmlns:views="clr-namespace:RosterApp.Views;assembly=RosterApp"
+             Title="ROSTER">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="ADD" Command="{Binding AddCommand}" BackgroundColor="Aqua"/>
+            <ListView x:Name="Enumeration" ItemsSource="{Binding Markets}"
+              SelectedItem="{Binding SelectedItemMarket, Mode=TwoWay}" HasUnevenRows="True" RowHeight="20">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Name}" FontSize="Medium" Margin="20,0,0,0" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+                                <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding IsDone}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</views:BaseView>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="RosterApp.Views.MarketItemView"
+             xmlns:views="clr-namespace:RosterApp.Views;assembly=RosterApp"
+             Title="Item">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="ItemName" />
+                <Entry Text="{Binding ItemName}" FontSize="Medium" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Switch IsToggled="{Binding IsDone}" />
+                <Button Text="Save" Command="{Binding SaveCommand}"/>
+                <Button Text="Update" Command="{Binding UpdateCommand}"/>
+                <Button Text="Delete" Command="{Binding DeleteCommand}"/>
+                <Button Text="Cancel" Command="{Binding CancelCommand}"/> 
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</views:BaseView>

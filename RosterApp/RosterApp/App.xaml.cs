@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using RosterApp.Views;
+using Xamarin.Forms;
 
 namespace RosterApp
 {
@@ -8,7 +9,7 @@ namespace RosterApp
         {
             InitializeComponent();
 
-            MainPage = new RosterAppPage();
+            MainPage = new NavigationPage(new MarketListView());
         }
 
         protected override void OnStart()
